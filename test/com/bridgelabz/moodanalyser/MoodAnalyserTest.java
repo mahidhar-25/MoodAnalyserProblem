@@ -23,8 +23,19 @@ public class MoodAnalyserTest {
     public void testAnalyseMoodAnyMessageShouldReturnHAPPY() {
         MoodAnalyser moodAnalyser = new MoodAnalyser();
         moodAnalyser.setMessage("I am in Any Mood");
-            assertEquals("HAPPY", moodAnalyser.analyseMood());
+        assertEquals("HAPPY", moodAnalyser.analyseMood());
 
     }
+        /*
+    @desc : when pass the message while intializing using constructors it should analyse the message and returns the mood
+     */
+
+    @Test
+    public void testAnalyseMoodSadMessageShouldReturnSADUseConstructors() {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Sad Mood");
+            assertEquals("SAD", moodAnalyser.analyseMood());
+
+    }
+
 
 }
