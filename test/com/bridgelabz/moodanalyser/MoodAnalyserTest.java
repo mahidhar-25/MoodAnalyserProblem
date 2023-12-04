@@ -73,4 +73,52 @@ public class MoodAnalyserTest {
         }
     }
 
+
+    @Test
+    public void testAnalyseMoodEmptyMessageShouldThrowMoodAnalysisException() {
+        try {
+            MoodAnalyser moodAnalyser = new MoodAnalyser("");
+            moodAnalyser.analyseMood();
+            fail("Expected MoodAnalysisException but did not occur");
+        } catch (MoodAnalysisException e) {
+            assertEquals(MoodAnalysisError.EMPTY, e.error);
+            assertEquals("Mood should not be empty", e.getMessage());
+        }
+    }
+/*
+@desc : Test Case for Null Message Exception:
+
+Objective: This test case aims to verify that when a MoodAnalyser object is created with a null message and the analyseMood() method is called, it correctly throws a MoodAnalysisException.
+Procedure:
+An instance of MoodAnalyser is created with a null message.
+The analyseMood() method is invoked.
+Expected Outcome: The test is successful if a MoodAnalysisException with the expected type is thrown.
+ */
+    @Test(expected = MoodAnalysisException.class)
+    public void testAnalyseMoodNullMessageShouldThrowMoodAnalysisExceptionWithNullError() throws MoodAnalysisException {
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        moodAnalyser.analyseMood();
+    }
+/*
+@desc : Test Case for Null Message Exception with Error Message Validation:
+
+Objective: This test case verifies that the MoodAnalysisException thrown in the previous test case contains the expected error type and message.
+Procedure:
+An instance of MoodAnalyser is created with a null message.
+The analyseMood() method is invoked within a try-catch block.
+The caught MoodAnalysisException is then validated for the expected error type and message.
+Expected Outcome: The test is successful if the caught exception has the expected error type and message.
+ */
+    @Test(expected = MoodAnalysisException.class)
+    public void testAnalyseMoodNullMessageShouldThrowMoodAnalysisExceptionWithNullErrorAndMessage() throws MoodAnalysisException {
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        try {
+            moodAnalyser.analyseMood();
+        } catch (MoodAnalysisException e) {
+            assertEquals(MoodAnalysisError.NULL, e.error);
+            assertEquals("Mood should not be null", e.getMessage());
+            throw e;
+        }
+    }
+
 }

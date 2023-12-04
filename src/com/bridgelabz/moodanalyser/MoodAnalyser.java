@@ -49,6 +49,8 @@ public class MoodAnalyser {
     public String analyseMood() throws MoodAnalysisException {
         if(message == null){
             throw new MoodAnalysisException(MoodAnalysisError.NULL, "Mood should not be null");
+        }else if (message.isEmpty()) {
+            throw new MoodAnalysisException(MoodAnalysisError.EMPTY, "Mood should not be empty");
         }
         if (message.toLowerCase().contains("sad")) {
             return "SAD";
