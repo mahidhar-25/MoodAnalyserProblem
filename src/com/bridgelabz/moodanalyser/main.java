@@ -30,7 +30,9 @@ public class main {
                     // Test Case 3 - Given NULL Mood Should Throw MoodAnalysisException
                     MoodAnalyser moodAnalyser7 = new MoodAnalyser(null);
                     System.out.println("Test Case 3: " + moodAnalyser7.analyseMood());
-
+                    // Test Case 3.1 - Given Empty Mood Should Throw MoodAnalysisException indicating Empty Mood
+                    MoodAnalyser moodAnalyser8 = new MoodAnalyser("");
+                    System.out.println("Test Case 3.1: " + moodAnalyser8.analyseMood());
 
                 } catch (MoodAnalysisException e) {
                     System.out.println("Exception: " + e.getMessage() + ", Error: " + e.error);
