@@ -27,6 +27,10 @@ public class main {
                     // Test Case 2.1 - Given Invalid Mood Should Throw MoodAnalysisException
                     MoodAnalyser moodAnalyser6 = new MoodAnalyser("");
                     System.out.println("Test Case 2.1: " + moodAnalyser6.analyseMood());
+                    // Test Case 3 - Given NULL Mood Should Throw MoodAnalysisException
+                    MoodAnalyser moodAnalyser7 = new MoodAnalyser(null);
+                    System.out.println("Test Case 3: " + moodAnalyser7.analyseMood());
+
 
                 } catch (MoodAnalysisException e) {
                     System.out.println("Exception: " + e.getMessage() + ", Error: " + e.error);
