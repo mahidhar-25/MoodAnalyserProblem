@@ -46,9 +46,9 @@ public class MoodAnalyser {
     @parms : no params
     @return : String - Mood
      */
-    public String analyseMood()  {
+    public String analyseMood() throws MoodAnalysisException {
         if(message == null){
-            return "HAPPY";
+            throw new MoodAnalysisException(MoodAnalysisError.NULL, "Mood should not be null");
         }
         if (message.toLowerCase().contains("sad")) {
             return "SAD";
